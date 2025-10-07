@@ -13,13 +13,18 @@
     <div id="ex1" class="ex">
       <h5>Ex1 - OnClick</h5>
       <button id="ex1_button">Click me</button>
-      <script>function myFunction() {
-        let ex1_content = ""
-           for (let i = 0; i < 10; i++) {
-              ex1_content += 1 + ", "
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const button = document.getElementById("ex1_button");
+          const output = document.getElementById("ex1_content");
+          button.addEventListener("click", function() {
+            let ex1_wynik = ""
+            for (let i = 0; i < 10; i++) {
+              ex1_wynik += 1 + ", "
             }
-        document.getElementById("ex1_content").innerHTML = ex1_content; 
-          }
+            output.innerText = ex1_wynik;
+          });
+        });
       </script>
       <div id="ex1_content"></div>
     </div>
@@ -34,7 +39,7 @@
       <h5>Ex3 - Drag&Drop</h5>
       <div>
         <div id="ex3_one">
-          <div id="ex3_element">Content</div>
+          <div id="ex3_element" draggable="true">Content</div>
         </div>
         <div id="ex3_two"></div>
       </div>
