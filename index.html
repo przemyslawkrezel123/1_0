@@ -40,10 +40,10 @@
           const wartosc = pole.value;
           const regex = /^\d{3}-\d{3}-\d{3}$/;
           if (regex.test(wartosc)) {
-            komunikat.textContent = "Numer telefonu jest poprawny";
+            komunikat.textContext = "Numer telefonu jest poprawny";
           }
           else {
-            komunikat.textContent = "Numer telefonu jest niepoprawny";
+            komunikat.textContext = "Numer telefonu jest niepoprawny";
           }
         })
         </script>
