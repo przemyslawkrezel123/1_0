@@ -33,46 +33,29 @@
       <h5>Ex2 - Validation</h5>
       <input type="text" id="ex2_text" placeholder="phone number" />
       <div id="ex2_content"></div>
-      <div id="ex3_content"></div>
-      <div id="ex4_content"></div>
-      <div id="ex5_content"></div>
-        <script>
+
+      <script>
         const pole = document.getElementById("ex2_text");
         const komunikat = document.getElementById("ex2_content");
-        const komunikat3 = document.getElementById("ex3_content");
-        const komunikat4 = document.getElementById("ex4_content");
-        const komunikat5 = document.getElementById("ex5_content");
-        
+
         pole.addEventListener("input", walidacja);
-        
+
         function walidacja() {
           const wartosc = pole.value;
-          
-          if (wartosc.match(/[\W]/)) {
-            komunikat5.textContent = "Numer nie może zawierać znaków specjalnych";
-          } else {
-            komunikat5.textContent = " ";
-          }
-          
-          if (wartosc.length != 9) {
-            komunikat3.textContent = "Długość numeru musi być równa 9";
-          } else {
-            komunikat3.textContent = " ";
-          }
-          
-          if (wartosc.match(/[a-zA-Z]/)) {
-            komunikat4.textContent = "Numer nie może zawierać liter";
-          } else {
-            komunikat4.textContent = " ";
-          }
-          
-          if (wartosc.match(/^[0-9]+$/) && wartosc.length == 9) {
+
+          if (wartosc.match(/[\W_]/)) {
+            komunikat.textContent = "Numer nie może zawierać znaków specjalnych";
+          } else if (wartosc.match(/[a-zA-Z]/)) {
+            komunikat.textContent = "Numer nie może zawierać liter";
+          } else if (wartosc.length !== 9) {
+            komunikat.textContent = "Długość numeru musi być równa 9";
+          } else if (wartosc.match(/^[0-9]{9}$/)) {
             komunikat.textContent = "Numer telefonu jest poprawny";
           } else {
-            komunikat.textContent = " ";
+            komunikat.textContent = "";
           }
         }
-        </script>
+      </script>
     </div>
 
     <div id="ex3" class="ex">
